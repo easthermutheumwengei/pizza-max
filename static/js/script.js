@@ -74,63 +74,76 @@ function getGrandTotal() {
 
 
 $(document).ready(function() {
-            $("#toHide").hide();
-            $("#alsoToHide").hide();
-            $("#stayLocation").hide()
-            $("#message").hide()
-            $("form#order").submit(function(event) {
-                event.preventDefault();
-                var inputtedSizePrice = $("#pizzaSize").val();
-                var inputtedCrustPrice = $("#pizzacrust").val();
-                var inputtedToppingPrice = $("#pizzaToppings").val();
-                if (inputtedSizePrice === "" || inputtedCrustPrice === "" || inputtedToppingPrice === "") {
-                    reset()
-                    alert("Please make a pick from the available options")
-                } else {
-                    var pickedPizza = new Pizza(inputtedSizePrice, inputtedCrustPrice, inputtedToppingPrice)
-                    var placedOrder = new PizzaOrder()
-                    placedOrder.pizza.push(pickedPizza)
-                    deliveryOrder.pizza.push(pickedPizza)
-                    resetFields();
-                }
+    $("#toHide").hide();
+    $("#alsoToHide").hide();
+    $("#stayLocation").hide()
+    $("#message").hide()
+    $("form#order").submit(function(event) {
+        event.preventDefault();
+        var inputtedSizePrice = $("#pizzaSize").val();
+        var inputtedCrustPrice = $("#pizzacrust").val();
+        var inputtedToppingPrice = $("#pizzaToppings").val();
+        if (inputtedSizePrice === "" || inputtedCrustPrice === "" || inputtedToppingPrice === "") {
+            reset()
+            alert("Please make a pick from the available options")
+        } else {
+            var pickedPizza = new Pizza(inputtedSizePrice, inputtedCrustPrice, inputtedToppingPrice)
+            var placedOrder = new PizzaOrder()
+            placedOrder.pizza.push(pickedPizza)
+            deliveryOrder.pizza.push(pickedPizza)
+            resetFields();
+        }
 
-                $("#toHide").show();
-                placedOrder.pizza.forEach(function(pickedPizza) {
-                    $("#PizzaDisplay").append(`<tr>
+        $("#toHide").show();
+        placedOrder.pizza.forEach(function(pickedPizza) {
+            $("#PizzaDisplay").append(`<tr>
                 <th scope="row">${genRandId()}</th>
                 <td>${pickedPizza.getSize(pickedPizza.size)}</td>
                 <td>${pickedPizza.getCrust(pickedPizza.crust)}</td>
                 <td>${pickedPizza.getToppings(pickedPizza.topping)}</td>
                 <td>${pickedPizza.getTotal()}</td>
           </tr>`);
-                })
-            });
+        })
+    });
 
-            $("#target").click(function() {
-                $("#alsoToHide").show()
-                $("#message").hide()
-                $("#target").hide()
-                $("#stayLocation").hide()
-                $("#track").append(`<strong>${genOderId()}</strong>`)
-                $("#total").append(`<strong>${getGrandTotal()}</strong>`)
-            });
+    $("#target").click(function() {
+        $("#alsoToHide").show()
+        $("#message").hide()
+        $("#target").hide()
+        $("#stayLocation").hide()
+        $("#track").append(`<strong>${genOderId()}</strong>`)
+        $("#total").append(`<strong>${getGrandTotal()}</strong>`)
+    });
 
-            $("#delivery").click(function() {
-                $("#stayLocation").show()
-                $("#wouldYou").hide()
-            });
+    $("#delivery").click(function() {
+        $("#stayLocation").show()
+        $("#wouldYou").hide()
+    });
 
-            $("#withLoc").click(function() {
-                var location = $("#stay").val()
-                if (location === "") {
-                    alert("Enter delivery location")
-                } else {
-                    $("#withLoc").hide()
-                    $("#stay-text").hide()
-                    $("#stay").hide()
-                    $("#delly").append(`Your grand total, inclusive of delivery fee is <strong>${sum + 200}</strong> 
+    $("#withLoc").click(function() {
+        var location = $("#stay").val()
+        if (location === "") {
+            alert("Enter delivery location")
+        } else {
+            $("#withLoc").hide()
+            $("#stay-text").hide()
+            $("#stay").hide()
+            $("#delly").append(`Your grand total, inclusive of delivery fee is <strong>${sum + 200}</strong> 
                         Your order will be delivered to 
                         <strong>${location}</strong>`)
-                }
+        }
 
-            })
+    })
+
+    $("#nodeli").click(function() {
+        $("#wouldYou").hide()
+    });
+
+    $("#confirm").click(function() {
+        $("#final").hide()
+        $("#stayLocation").hide()
+        $("#message").show()
+    })
+
+
+})
