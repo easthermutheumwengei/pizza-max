@@ -27,3 +27,37 @@ function genOderId() {
 var reset = function() {
     location.reload();
 }
+
+Pizza.prototype.getSize = function(size) {
+    if (size === "600") {
+        return `Small - ${this.size}`
+    } else if (size === "900") {
+        return `Medium - ${this.size}`
+    } else if (size === "1200") {
+        return `Large - ${this.size}`
+    }
+}
+
+Pizza.prototype.getCrust = function(crust) {
+    if (crust === "150") {
+        return `Cripsy - ${this.crust}`
+    } else if (crust === "175") {
+        return `Stuffed - ${this.crust}`
+    } else if (crust === "200") {
+        return `Gluten Free - ${this.crust}`
+    }
+}
+
+Pizza.prototype.getToppings = function(topping) {
+    if (topping === "225") {
+        return `Pepperoni - ${this.topping}`
+    } else if (topping === "245") {
+        return `Mushrooms - ${this.topping}`
+    } else if (topping === "265") {
+        return `Gorgonzola - ${this.topping}`
+    }
+}
+
+Pizza.prototype.getTotal = function() {
+    return this.total
+}
