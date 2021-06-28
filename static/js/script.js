@@ -105,3 +105,32 @@ $(document).ready(function() {
           </tr>`);
                 })
             });
+
+            $("#target").click(function() {
+                $("#alsoToHide").show()
+                $("#message").hide()
+                $("#target").hide()
+                $("#stayLocation").hide()
+                $("#track").append(`<strong>${genOderId()}</strong>`)
+                $("#total").append(`<strong>${getGrandTotal()}</strong>`)
+            });
+
+            $("#delivery").click(function() {
+                $("#stayLocation").show()
+                $("#wouldYou").hide()
+            });
+
+            $("#withLoc").click(function() {
+                var location = $("#stay").val()
+                if (location === "") {
+                    alert("Enter delivery location")
+                } else {
+                    $("#withLoc").hide()
+                    $("#stay-text").hide()
+                    $("#stay").hide()
+                    $("#delly").append(`Your grand total, inclusive of delivery fee is <strong>${sum + 200}</strong> 
+                        Your order will be delivered to 
+                        <strong>${location}</strong>`)
+                }
+
+            })
