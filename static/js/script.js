@@ -71,3 +71,37 @@ function getGrandTotal() {
     }
     return sum;
 }
+
+
+$(document).ready(function() {
+            $("#toHide").hide();
+            $("#alsoToHide").hide();
+            $("#stayLocation").hide()
+            $("#message").hide()
+            $("form#order").submit(function(event) {
+                event.preventDefault();
+                var inputtedSizePrice = $("#pizzaSize").val();
+                var inputtedCrustPrice = $("#pizzacrust").val();
+                var inputtedToppingPrice = $("#pizzaToppings").val();
+                if (inputtedSizePrice === "" || inputtedCrustPrice === "" || inputtedToppingPrice === "") {
+                    reset()
+                    alert("Please make a pick from the available options")
+                } else {
+                    var pickedPizza = new Pizza(inputtedSizePrice, inputtedCrustPrice, inputtedToppingPrice)
+                    var placedOrder = new PizzaOrder()
+                    placedOrder.pizza.push(pickedPizza)
+                    deliveryOrder.pizza.push(pickedPizza)
+                    resetFields();
+                }
+
+                $("#toHide").show();
+                placedOrder.pizza.forEach(function(pickedPizza) {
+                    $("#PizzaDisplay").append(`<tr>
+                <th scope="row">${genRandId()}</th>
+                <td>${pickedPizza.getSize(pickedPizza.size)}</td>
+                <td>${pickedPizza.getCrust(pickedPizza.crust)}</td>
+                <td>${pickedPizza.getToppings(pickedPizza.topping)}</td>
+                <td>${pickedPizza.getTotal()}</td>
+          </tr>`);
+                })
+            });
