@@ -19,7 +19,7 @@ You can install it with the following command in your terminal.
 To access this project on your local files, you can clone it using these steps
 
 1. Open your terminal
-2. Use this command to clone `$ `
+2. Use this command to clone `$https://easthermutheumwengei.github.io/pizza-max/ `
 3. This will clone the repository into your local folder
    **Enjoy :)**
 
@@ -34,7 +34,7 @@ To access this project on your local files, you can clone it using these steps
 
 ### Live Site
 
-View [Live] (/)
+View [Live] (https://easthermutheumwengei.github.io/pizza-max//)
 
 ### Licence
 
