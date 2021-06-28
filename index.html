@@ -66,113 +66,121 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div id="alsoToHide" class="col-md-4 oder-md-2 mb-4 select">
-                        <h4 class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="text-muted">Oder id : <span id="track"></span> </span>
-                        </h4>
-                        <div class="list-group mb-3">
-                            <div class="col list-group-item d-flex justify-content-between lh-condensed">Grand total is
-                                <span id="total"></span> </div>
-                            <div id="wouldYou">
-                                <div class="col list-group-item d-flex justify-content-between lh-condensed">
-                                    <p>Would you like a delivery?</p>
-                                    <br>
-                                    <br>
-                                    <div class="list-group-item d-flex justify-content-between lh-condensed">
-                                        <button type="submit" id="delivery" class="btn btn-success spice">Yes</button>
-                                        <br>
-                                        <button type="submit" id="nodeli" class="btn btn-danger spice">No</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="stayLocation" class="col list-group-item">
-                                <div class="col">
-                                    <p>You will incur an extra cost of 200 Ksh.</p>
-                                </div>
-                                <label id="stay-text" for="stay">Where do you stay?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div id="alsoToHide" class="col-md-4 oder-md-2 mb-4 select">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Oder id : <span id="track"></span> </span>
+                </h4>
+                <div class="list-group mb-3">
+                    <div class="col list-group-item d-flex justify-content-between lh-condensed">Grand total is
+                        <span id="total"></span> </div>
+                    <div id="wouldYou">
+                        <div class="col list-group-item d-flex justify-content-between lh-condensed">
+                            <p>Would you like a delivery?</p>
+                            <br>
+                            <br>
+                            <div class="list-group-item d-flex justify-content-between lh-condensed">
+                                <button type="submit" id="delivery" class="btn btn-success spice">Yes</button>
                                 <br>
-                                <input type="text" name="stay" id="stay">
-                                <input type="button" id="withLoc" class="btn btn-warning check" value="Submit Location">
+                                <button type="submit" id="nodeli" class="btn btn-danger spice">No</button>
                             </div>
                         </div>
-
-                        <div id="final" class="check">
-                            <button type="submit" id="confirm" class="btn btn-success">Confirm Order</button>
-                            <input type="button" onclick="reset()" value="Cancel Order" id="cansel" class="btn btn-danger">
+                    </div>
+                    <div id="stayLocation" class="col list-group-item">
+                        <div class="col">
+                            <p>You will incur an extra cost of 200 Ksh.</p>
                         </div>
-                        <div id="message" class="col btn-warning">
-                            <br>
-                            <p> Thank you for shopping with us ! Enjoy our Pizza.</p>
-                            <input type="button" class="btn btn-danger check" onclick="reset()" value="X">
-                            <p id="delly"></p>
+                        <label id="stay-text" for="stay">Where do you stay?</label>
+                        <br>
+                        <input type="text" name="stay" id="stay">
+                        <input type="button" id="withLoc" class="btn btn-warning check" value="Submit Location">
+                    </div>
+                </div>
+
+                <div id="final" class="check">
+                    <button type="submit" id="confirm" class="btn btn-success">Confirm Order</button>
+                    <input type="button" onclick="reset()" value="Cancel Order" id="cansel" class="btn btn-danger">
+                </div>
+                <div id="message" class="col btn-warning">
+                    <br>
+                    <p> Thank you for shopping with us ! Enjoy our Pizza.</p>
+                    <input type="button" class="btn btn-danger check" onclick="reset()" value="X">
+                    <p id="delly"></p>
+                </div>
+            </div>
+
+
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Make Your Pizza Selections</h4>
+                <form id="order">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="size">Select Size</label>
+                            <select class="form-control" id="pizzaSize">
+                                <option value="">Choose...</option>
+                                <option value="600">Small</option>
+                                <option value="900">Medium</option>
+                                <option value="1200">Large</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="crust">Pick Crust Size</label>
+                            <select class="form-control" id="pizzacrust">
+                                <option value="">Choose...</option>
+                                <option value="150">Cripsy</option>
+                                <option value="175">Stuffed</option>
+                                <option value="200">Gluten free</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="toppings">Pick Toppings</label>
+                            <select class="form-control" id="pizzaToppings">
+                                <option value="">Choose...</option>
+                                <option value="225">Pepperoni</option>
+                                <option value="245">Mushrooms</option>
+                                <option value="265">Gorgonzola</option>
+                            </select>
                         </div>
                     </div>
+                    <button type="submit" class="btn btn-warning">Click to select your choices</button>
+                    <br>
+                    <br>
+                    <br>
+                </form>
 
+                <div id="toHide">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#Order No</th>
+                                <th scope="col">Pizza Size</th>
+                                <th scope="col">Toppings</th>
+                                <th scope="col">Crust</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        </thead>
+                        <tbody id="PizzaDisplay">
 
-                    <div class="col-md-8 order-md-1">
-                        <h4 class="mb-3">Make Your Pizza Selections</h4>
-                        <form id="order">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="size">Select Size</label>
-                                    <select class="form-control" id="pizzaSize">
-                                        <option value="">Choose...</option>
-                                        <option value="600">Small</option>
-                                        <option value="900">Medium</option>
-                                        <option value="1200">Large</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="crust">Pick Crust Size</label>
-                                    <select class="form-control" id="pizzacrust">
-                                        <option value="">Choose...</option>
-                                        <option value="150">Cripsy</option>
-                                        <option value="175">Stuffed</option>
-                                        <option value="200">Gluten free</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="toppings">Pick Toppings</label>
-                                    <select class="form-control" id="pizzaToppings">
-                                        <option value="">Choose...</option>
-                                        <option value="225">Pepperoni</option>
-                                        <option value="245">Mushrooms</option>
-                                        <option value="265">Gorgonzola</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-warning">Click to select your choices</button>
-                            <br>
-                            <br>
-                            <br>
-                        </form>
+                        </tbody>
+                    </table>
 
-                        <div id="toHide">
-                            <table class="table table-dark">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#Order No</th>
-                                        <th scope="col">Pizza Size</th>
-                                        <th scope="col">Toppings</th>
-                                        <th scope="col">Crust</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                </thead>
-                                <tbody id="PizzaDisplay">
-
-                                </tbody>
-                            </table>
-
-                            <button type="submit" id="target" class="btn btn-warning">Click to view order details when
-                                done
-                                selecting.</button>
-                        </div>
-                    </div>
+                    <button type="submit" id="target" class="btn btn-warning">Click to view order details when
+                        done
+                        selecting.</button>
                 </div>
             </div>
         </div>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2021 Pizza Max</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="">Privacy</a></li>
+                <li class="list-inline-item"><a href="">Terms</a></li>
+                <li class="list-inline-item"><a href="">Support</a></li>
+            </ul>
+        </footer>
     </div>
 </body>
 
